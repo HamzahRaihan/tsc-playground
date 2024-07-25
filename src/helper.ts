@@ -1,3 +1,3 @@
-import { myName } from './index.js';
+// import { myName } from './index.js';
 
-console.log(myName);
+// console.log(myName);

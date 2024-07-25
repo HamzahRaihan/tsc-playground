@@ -77,3 +77,33 @@ Never keyword often used for:
 /* 
 Array types, array are a type of object that can store multiple values of the same data type. arrays in typescript are typed, which means you can specify the type of values that an array can hold
 */
+
+// * Array type
+// const nums: number[] = [1, 2, 3, 4];
+// const str: string[] = ['john', 'doe'];
+
+// nums.push(5);
+// str.push('keyboard');
+
+// console.log(`'string array ${str}' and 'number array ${nums}'`);
+
+// * Using object as function return value
+// const person: { firstname: string; lastname: string; age: number } = {
+//   firstname: 'Hamzah',
+//   lastname: 'raihan',
+//   age: 22,
+// };
+
+// console.log(`name: ${person.firstname} ${person.lastname}, age: ${person.age}`);
+
+// function parameter
+function printUser(): { name: string; age: number; location: string } {
+  return {
+    name: 'Hamzah',
+    age: 22,
+    location: 'indonesia',
+  };
+}
+
+const res = printUser();
+console.log(res);
