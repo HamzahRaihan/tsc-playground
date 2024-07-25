@@ -61,9 +61,9 @@ it ids often used as a return type for function that do not return a value
 // printMessage('Hallo semuanya');
 
 /* 
-Never, The never keyword is used to indicate that a function will not return anything, or that a variable can never a have a value. the never type is useful for indicating that certain code paths should never be reached, or that certain values are impossible. it can help catch errors at compile-time instead of runtime.
+* Never, The never keyword is used to indicate that a function will not return anything, or that a variable can never a have a value. the never type is useful for indicating that certain code paths should never be reached, or that certain values are impossible. it can help catch errors at compile-time instead of runtime.
 
-Never keyword often used for:
+* Never keyword often used for:
 1. a function that always throws an error
 2. a function that has an infinite loop
 3. a variable that can never have a value
@@ -74,9 +74,9 @@ Never keyword often used for:
 //   throw new Error(msg);
 // }
 
-/* 
-Array types, array are a type of object that can store multiple values of the same data type. arrays in typescript are typed, which means you can specify the type of values that an array can hold
-*/
+/*
+ *Array types, array are a type of object that can store multiple values of the same data type. arrays in typescript are typed, which means you can specify the type of values that an array can hold
+ */
 
 // * Array type
 // const nums: number[] = [1, 2, 3, 4];
@@ -97,13 +97,34 @@ Array types, array are a type of object that can store multiple values of the sa
 // console.log(`name: ${person.firstname} ${person.lastname}, age: ${person.age}`);
 
 // function parameter
-function printUser(): { name: string; age: number; location: string } {
-  return {
-    name: 'Hamzah',
-    age: 22,
-    location: 'indonesia',
-  };
-}
+// function printUser(): { name: string; age: number; location: string } {
+//   return {
+//     name: 'Hamzah',
+//     age: 22,
+//     location: 'indonesia',
+//   };
+// }
 
-const res = printUser();
+// const res = printUser();
+// console.log(res);
+
+/*
+ * Type aliases, a type alias is a way to create a new name for an existing type. it allows you to define a custom type that refers to another type and give it a more meaningful or descriptive name. type aliases are defined using the type keyword followed by the name of the alias, an equal sign (=), and the type it refers to.
+ */
+
+type Person = {
+  name: string;
+  age: number;
+  location: string;
+};
+
+function printName(person: Person) {
+  return `Name: ${person.name},Age: ${person.age},Location: ${person.location}`;
+}
+const res = printName({
+  name: 'hamzah',
+  age: 22,
+  location: 'Indonesia',
+});
+
 console.log(res);
