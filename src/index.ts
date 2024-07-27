@@ -49,10 +49,9 @@
 // const res = double2(2);
 // console.log(res);
 
-/* 
-Void in TypeScript is a type that represent the absence of any value.
-it ids often used as a return type for function that do not return a value
-*/
+/*
+ * Void in TypeScript is a type that represent the absence of any value. it is often used as a return type for function that do not return a value
+ */
 
 // Void Function
 // function printMessage(message: string): void {
@@ -112,19 +111,70 @@ it ids often used as a return type for function that do not return a value
  * Type aliases, a type alias is a way to create a new name for an existing type. it allows you to define a custom type that refers to another type and give it a more meaningful or descriptive name. type aliases are defined using the type keyword followed by the name of the alias, an equal sign (=), and the type it refers to.
  */
 
-type Person = {
-  name: string;
-  age: number;
-  location: string;
-};
+// type Person = {
+//   name: string;
+//   age: number;
+//   location: string;
+// };
 
-function printName(person: Person) {
-  return `Name: ${person.name},Age: ${person.age},Location: ${person.location}`;
-}
-const res = printName({
-  name: 'hamzah',
-  age: 22,
-  location: 'Indonesia',
-});
+// function printName(person: Person) {
+//   return `Name: ${person.name},Age: ${person.age},Location: ${person.location}`;
+// }
+// const res = printName({
+//   name: 'hamzah',
+//   age: 22,
+//   location: 'Indonesia',
+// });
 
-console.log(res);
+// console.log(res);
+
+/*
+ * Multidimensional Array, multi dimensional arrays an be defined using the same notation as single dimensional arrays, but with nested square brackets
+ */
+
+// const oneDimension: number[] = [1, 2, 3, 4];
+// const multiDimension: number[][] = [[1, 2, 3]];
+// const tripleDimension: number[][][] = [[[1, 2, 3, 4]]];
+
+/*
+ * optional properties, object type by adding question mark (?) after property name make it an optional props. So the properties does not required/optional
+ */
+
+// type Person = {
+//   name: string;
+//   age: number;
+//   email?: string;
+// };
+
+// const printPerson = (person: Person) => {
+//   if (person.email) {
+//     return `${person.name}, ${person.age}, ${person.email} `;
+//   }
+//   return `${person.name}, ${person.age}`;
+// };
+
+// const res = printPerson({
+//   name: 'Hamzah',
+//   age: 2,
+// });
+// console.log(res);
+
+// * Readonly property
+// type Person = {
+//   name: string;
+//   age: number;
+//   email?: string;
+//   readonly location: string;
+// };
+// const printPerson: Person = {
+//   name: 'Hamzah',
+//   age: 2,
+//   email: 'raihan@gmail.com',
+//   location: 'Purwa',
+// };
+
+// printPerson.location = 'Bandung';
+
+/*
+ * Intersection types, is a way to combine multiple type into single type that include all the properties methods of each constituent
+ */
