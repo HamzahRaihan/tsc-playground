@@ -178,3 +178,236 @@
 /*
  * Intersection types, is a way to combine multiple type into single type that include all the properties methods of each constituent
  */
+
+// type Person = {
+//   name: string;
+//   age: number;
+// };
+
+// type Employee = {
+//   id: number;
+//   title: string;
+// };
+
+// type PersonAndEmployee = Person & Employee;
+
+// const printEmployee: PersonAndEmployee = {
+//   name: 'Hamzah',
+//   age: 2,
+//   id: 2444,
+//   title: 'Software Engineer',
+// };
+
+// console.log(printEmployee);
+
+/*
+ * Unions, are used to declare a type that can have one of several possible types. unions are useful when we want to allow a variable or parameter to accept multiple types
+ */
+
+// const password: number | string = 2;
+
+// type User = {
+//   name: string;
+//   age: number;
+// };
+
+// type Account = {
+//   email: string;
+//   password: string;
+// };
+
+// const UserInfo: User | Account = {
+//   email: '@gmail',
+//   password: 'pass',
+// };
+
+// const arrayString: (number | string)[] = [1, 2, 3, 'string'];
+
+/*
+ * Literal types, allow you to specify a value that can only be one specific literal value
+ */
+
+// let color: 'blue' | 'green' | 'red';
+
+// color = 'blue';
+// color = 'green';
+
+// let token: 'tokenauth' = 'tokenauth';
+
+// token = 'something';
+// console.log(token);
+
+// console.log(color);
+
+/*
+ * Tuples, is a type that represent an array with fixed number of elements
+ */
+
+// let myTuple: [string, number];
+
+// myTuple = ['hello', 2];
+
+// const [a, b] = myTuple;
+// console.log(a);
+// console.log(b);
+
+// const games: [string, number, boolean] = ['elden ring', 3, true];
+// const drinks: [string, number, boolean] = ['grimace shake', 2, false];
+
+// const products: (number | string | boolean)[][] = [games, drinks];
+
+// console.log(products);
+
+/*
+ * enums, is a way to define a set of named constants
+ */
+
+// enum WeatherConditions {
+//   Sunny = 'sunny',
+//   Rainy = 'rainy',
+//   Cloudy = 'cloudy',
+//   Snowy = 'snowy',
+// }
+
+// const currentWeather = WeatherConditions.Snowy;
+
+/*
+ * class properties annotation, this allow define the data type of the property and ensure that it is always consistent.
+ */
+
+// class Person {
+//   readonly name: string;
+//   age: number;
+
+//   constructor(name: string, age: number) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// const person = new Person('hamzah', 2);
+
+// console.log(person);
+
+/*
+ * access mofifiers, you can use access modifiers to control the visibility of class members (properties and methods).
+ */
+
+// * Public: members marked as public can be accessed from anywhere, both inside and outside the class
+
+// * Private: members marked as private can only be accessed from within the class they are defined in
+
+// * Protected: Members marked as protected can be accessed from within the class they are defined in, as well as any subclasses that extend the class
+
+// class Person {
+//   private first: string; // private modifiers can only be accessed inside the class
+//   public last: string; // public modifiers can be accessed inside and outside the class
+//   protected age: number;
+
+//   constructor(first: string, last: string, age: number) {
+//     this.first = first;
+//     this.last = last;
+//     this.age = age;
+//   }
+
+//   getName(): string {
+//     return `Name: ${this.first} ${this.last}, Age: ${this.age}`;
+//   }
+// }
+
+// class User extends Person {
+//   constructor(first: string, last: string, age: number) {
+//     super(first, last, age);
+//     this.last = last;
+//     this.age = age;
+//   }
+// }
+
+// const p1 = new Person('John', 'Doe', 22);
+// console.log(p1.getName());
+
+// const jack = new User('Jack', 'Ma', 23);
+
+/*
+ * Getters and Setters, are used to access modify class properties.
+ */
+
+// class MyNumber {
+//   public _myNumber: number = 0;
+
+//   get myNumber(): number {
+//     return this._myNumber;
+//   }
+
+//   set setNumber(value: number) {
+//     this._myNumber = value;
+//   }
+// }
+
+// const myInstance = new MyNumber();
+// console.log(`Current value ${myInstance.myNumber}`);
+
+// myInstance.setNumber = 20;
+// console.log(`Current value ${myInstance.myNumber}`);
+
+/*
+ * Interface, is a way to define a contract for the shape of an object. it specifies the properties and their types that an object must have. interfaces are powerful tool for enforcing a certain structure in your code. Interfaces in typescript can also be used to describe the shape of function and classes
+ */
+
+// interface Computer {
+//   name: string;
+//   ram: number;
+//   hdd: number;
+// }
+
+// const myComputer: Computer = {
+//   name: 'Asus',
+//   ram: 80000,
+//   hdd: 2000,
+// };
+
+// console.log(myComputer);
+
+// interface Vehicle {
+//   start(): void;
+//   stop(): void;
+// }
+
+// class Car implements Vehicle {
+//   start(): void {
+//     console.log('Car is moving');
+//   }
+//   stop(): void {
+//     console.log('Car is stopping');
+//   }
+// }
+
+// const myCar = new Car();
+
+// myCar.start();
+
+// interface MathOperation {
+//   add(): void;
+//   subtract(): void;
+//   x: number;
+//   y: number;
+// }
+
+// class MathOperationImpl implements MathOperation {
+//   public x: number;
+//   public y: number;
+//   constructor(x: number, y: number) {
+//     this.x = x;
+//     this.y = y;
+//   }
+//   add(): void {
+//     console.log(`${this.x + this.y}`);
+//   }
+//   subtract(): void {
+//     console.log(`${this.x - this.y}`);
+//   }
+// }
+
+// const MathOp = new MathOperationImpl(4, 3);
+// MathOp.add();
+// MathOp.subtract();
