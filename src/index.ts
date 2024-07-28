@@ -411,3 +411,180 @@
 // const MathOp = new MathOperationImpl(4, 3);
 // MathOp.add();
 // MathOp.subtract();
+
+// interface Song {
+//   songName: string;
+//   singer: string;
+//   printSongInfo(songName: string, singer: string): string;
+// }
+
+// const mySong: Song = {
+//   songName: 'King windah',
+//   singer: 'Windah B',
+//   printSongInfo: (songName, singer) => {
+//     return `Song: ${songName}, singer: ${singer}`;
+//   },
+// };
+
+// console.log(mySong.printSongInfo('Dragon', 'Removal'));
+
+// interface MovieDetails {
+//   readonly name: string;
+//   ratings: number;
+//   printMovieInfo(name: string, ratings: number, price: number): string | number;
+// }
+
+// interface MovieGenre extends MovieDetails {
+//   genre: string;
+// }
+
+// const myMovie: MovieGenre = {
+//   name: 'Star Wars',
+//   ratings: 5,
+//   genre: 'Action',
+//   printMovieInfo: (name, ratings, price) => {
+//     return `${name}, ${ratings}, ${price}`;
+//   },
+// };
+
+// console.log(myMovie);
+
+// console.log(myMovie.printMovieInfo('Star', 5, 200));
+
+/*
+ * Declaration Merging or interface extension, allowed typescript to extend or augment an existing declaration, including interfaces. this can be useful when you wnat to add new properties or methods to an existing interfaces
+ */
+
+// interface Car {
+//   brand: string;
+//   start(): void;
+// }
+
+// interface Car {
+//   model: string;
+//   stop(): void;
+// }
+
+// const myCar: Car = {
+//   brand: 'Tesla',
+//   model: 'S',
+//   start() {
+//     console.log('Car is moving');
+//   },
+//   stop() {
+//     console.log('Car is stopping');
+//   },
+// };
+
+// console.log(myCar.brand, myCar.model);
+
+// myCar.start();
+// myCar.stop();
+
+/*
+ * generics, allow you to create reusable components that can woork with a variety of types. Generics make it possible for you to define functions, classes, and interfaces that can work with different data types without having to duplicate code
+
+* Personal note: <T> could be written by <Type>. so 'T' is shorthand for 'Type'.
+ */
+
+// * Generics regular functions
+// function printValue<T>(x: T) {
+//   return x;
+// }
+
+// function printDoubleValue<T>(x: T, y: T): T[] {
+//   return [x, y];
+// }
+
+// const doubleTypes = printDoubleValue<string | number>('same', 2);
+
+// const number = printValue<number>(2);
+// const string = printValue<string>('John Doe');
+// const boolean = printValue<boolean>(true);
+
+// function printDoubleValue<T>(x: T, y: T): T[] {
+//   return [x, y];
+// }
+
+// type Dog = {
+//   name: string;
+//   breed: string;
+// };
+
+// const newDog = printDoubleValue<Dog>(
+//   {
+//     name: 'Johnson',
+//     breed: 'Golden Retriever',
+//   },
+//   {
+//     name: 'Marcus',
+//     breed: 'Dalmatian',
+//   }
+// );
+
+// function getRandomKeyValuePair<T>(obj: { [key: string]: T }): { key: string; value: T } {
+//   const keys = Object.keys(obj);
+//   const randomKeys = keys[Math.floor(Math.random() * keys.length)];
+//   return { key: randomKeys, value: obj[randomKeys] };
+// }
+
+// const stringObject = { a: 'Apple', b: 'Banana', c: 'Cherry' };
+// const randomString = getRandomKeyValuePair<string>(stringObject);
+// console.log(randomString);
+
+// const numberObject = { one: 1, two: 2, three: 3 };
+// const randomNumber = getRandomKeyValuePair<number>(numberObject);
+// console.log(randomNumber);
+
+// const filterArray = <T>(array: T[], condition: (item: T) => boolean) => {
+//   return array.filter((item) => condition(item));
+// };
+
+// const numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const evenNumber = filterArray<number>(numberArray, (num) => num % 2 === 0);
+
+// const stringArray = ['Apple', 'Banana', 'Grape', 'Pear'];
+// const filteredData = filterArray<string>(stringArray, (string) => string.length < 6);
+
+// type Fruit = {
+//   name: string;
+//   color: string;
+// };
+
+// const fruitArray: Fruit[] = [
+//   { name: 'Apple', color: 'Red' },
+//   { name: 'Banana', color: 'Yellow' },
+//   { name: 'Pear', color: 'Green' },
+//   { name: 'Cherry', color: 'Red' },
+// ];
+
+// const findRedFruit = filterArray<Fruit>(fruitArray, (fruit) => fruit.color === 'Red');
+// console.log('🚀 ~ findRedFruit:', findRedFruit);
+
+// * Generics Arrow Function
+// const printValue = <T>(x: T) => {
+//   return x;
+// };
+
+// * Generics class
+
+// class Box<T> {
+//   private content: T;
+//   constructor(initialValue: T) {
+//     this.content = initialValue;
+//   }
+
+//   getContent(): T {
+//     return this.content;
+//   }
+
+//   setContent(newContent: T): void {
+//     this.content = newContent;
+//   }
+// }
+
+// const stringBox = new Box<string>('Hallo');
+// const numberBox = new Box<number>(2);
+// console.log(numberBox);
+
+// TODO TYPE NARROWING
