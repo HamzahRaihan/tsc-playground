@@ -522,6 +522,37 @@
 //   }
 // );
 
+// type Fruit = {
+//   name: string;
+//   color: string;
+//   price: number;
+// };
+
+// const printFruit = <T>(fruit: T[], condition: (item: T) => boolean): T[] => {
+//   return fruit.filter((item) => condition(item));
+// };
+
+// const fruitData = [
+//   {
+//     name: 'apple',
+//     color: 'red',
+//     price: 3000,
+//   },
+//   {
+//     name: 'Pear',
+//     color: 'green',
+//     price: 3000,
+//   },
+//   {
+//     name: 'Cherry',
+//     color: 'red',
+//     price: 5000,
+//   },
+// ];
+
+// const filterData = printFruit<Fruit>(fruitData, (item) => item.color === 'red');
+// console.log('🚀 ~ filterData:', filterData);
+
 // function getRandomKeyValuePair<T>(obj: { [key: string]: T }): { key: string; value: T } {
 //   const keys = Object.keys(obj);
 //   const randomKeys = keys[Math.floor(Math.random() * keys.length)];
@@ -587,4 +618,75 @@
 // const numberBox = new Box<number>(2);
 // console.log(numberBox);
 
-// TODO TYPE NARROWING
+/*
+ * Type Narrowing, is the process of refining a variable type within conditional block of code. this allow you to write more precise and type-safe code
+ */
+
+/*
+ * Type guards, are mechanism that help typescript understand and narrow down the types more precisely. one common type guard is the 'typeof' operator.
+ */
+
+// * define a union type
+// type Fruit = string | number;
+
+// * example function with type guard
+
+// function exampleFunc(value: Fruit): void {
+//   if (typeof value === 'string') {
+//     console.log(value.toUpperCase());
+//   } else {
+//     console.log(value.toFixed(2));
+//   }
+// }
+
+// exampleFunc('Fruit: Apple');
+// exampleFunc(2);
+
+/*
+ * instanceof operator, is another type guard in TypeScript that allows you to check whether an object is an instance of a particular class of constructor function.
+ */
+
+// class Dog {
+//   bark(): void {
+//     console.log('Bark bark bark');
+//   }
+// }
+
+// class Cat {
+//   meow(): void {
+//     console.log('Mew mew mew');
+//   }
+// }
+
+// function animalSound(animal: Dog | Cat): void {
+//   if (animal instanceof Dog) animal.bark();
+//   if (animal instanceof Cat) animal.meow();
+// }
+
+// const myDog = new Dog();
+// const myCat = new Cat();
+
+// animalSound(myDog); // Dog sound
+// animalSound(myCat); // Cat sound
+
+// * intersection type narrowing
+// type Employee = {
+//   id: number;
+//   name: string;
+// };
+
+// type Manager = {
+//   department: string;
+//   role: string;
+// };
+
+// type EmployeeWithManager = Employee & Manager;
+
+// const manager: EmployeeWithManager = {
+//   id: 123,
+//   name: 'John',
+//   department: 'CompScie',
+//   role: 'Team Lead',
+// };
+
+// console.log(manager.id);
